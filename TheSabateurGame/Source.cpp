@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
+#include <iostream>
 
+using namespace std;
 using namespace sf;
 
 void drawmap(Game*, Sprite, RenderWindow&);
@@ -59,15 +61,18 @@ int main()
 				text2.setString("Enter number of players: " + name);
 			window.draw(text2);
 			window.display();
-			if (Keyboard::isKeyPressed(Keyboard::Tilde)) {
-				switch (plnum) {
+			if (Keyboard::isKeyPressed(Keyboard::Tilde)) 
+			{
+				switch (plnum) 
+				{
 				case 1: {
 					pnum = stoi(name);
 					plnum++;
 					name = "";
 					break;
 				}
-				default:{
+				default:
+				{
 					tmp = new Player();
 					tmp->setName(name);
 					g->players.push_back(tmp);
@@ -76,7 +81,8 @@ int main()
 					break;
 				}
 				}
-				if (plnum - 1 == pnum) {
+				if (plnum - 1 == pnum)
+				{
 					infonotentered = 0;
 					g->start();
 				}
