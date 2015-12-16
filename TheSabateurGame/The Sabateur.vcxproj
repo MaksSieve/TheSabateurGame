@@ -90,11 +90,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main-d.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -118,13 +118,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>D:\MEGA\Visual Studio 2015\Projects\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;D:\TheSabateurGame\TheSabateurGame\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
