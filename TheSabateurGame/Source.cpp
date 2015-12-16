@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "TheSabateurGame\TheSabateurGame\Game.h"
+#include "Game.h"
 
 using namespace sf;
 
