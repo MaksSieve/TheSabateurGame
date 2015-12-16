@@ -24,18 +24,18 @@ int main()
 	Text text2("", font, 20);
 	text2.setColor(Color::Red);
 	text2.setPosition(0, 0);
-	int pnum = 0;
-//	string tmp_s[2] = { "dm", "mks" };
+	int pnum = 2;
+	string tmp_s[2] = { "dm", "mks" };
 	Player* tmp;
-	/*for (int i = 0; i < pnum; i++) 
+	for (int i = 0; i < pnum; i++) 
 	{
 		tmp = new Player();
 		tmp->setName(tmp_s[i]);
 		g->players.push_back(tmp);
-	}*/
-	
-	string name;
-	bool infonotentered=1;
+	}
+	//string name;
+	bool infonotentered=0;
+	g->start();
 	while (window.isOpen())
 	{
 		Event event;
@@ -43,16 +43,16 @@ int main()
 		{
 			if (event.type == Event::Closed)
 				window.close();
-			if (event.type == sf::Event::TextEntered)
+			/*if (event.type == sf::Event::TextEntered)
 			{
 				if (event.text.unicode < 128)
 					name+= static_cast<char>(event.text.unicode);
-			}
+			}*/
 		}
 		window.clear();
 		if (infonotentered) 
 		{
-			int plnum = 1;
+			/*int plnum = 1;
 			if (plnum - 1)
 				text2.setString("Enter player " + to_string(plnum - 1) + " name: " + name);
 			else
@@ -80,7 +80,7 @@ int main()
 					infonotentered = 0;
 					g->start();
 				}
-			}
+			}*/
 		}
 		else
 		{
