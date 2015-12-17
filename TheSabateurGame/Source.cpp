@@ -5,10 +5,13 @@
 using namespace std;
 using namespace sf;
 
+void drawmenu(RenderWindow&);
 void drawmap(Game*, Sprite, RenderWindow&);
+void mypause(Clock);
 
 int main()
 {
+
 	Clock clock;
 	Game* g = new Game();
 	RenderWindow window(VideoMode(32*9, 32*9+50), "The Saboteur");
@@ -26,18 +29,19 @@ int main()
 	Text text2("", font, 20);
 	text2.setColor(Color::Red);
 	text2.setPosition(0, 0);
-	int pnum = 2;
-	string tmp_s[2] = { "dm", "mks" };
+	int pnum = 0;
+	//string tmp_s[2] = { "dm", "mks" };
 	Player* tmp;
-	for (int i = 0; i < pnum; i++) 
+	/*for (int i = 0; i < pnum; i++) 
 	{
 		tmp = new Player();
 		tmp->setName(tmp_s[i]);
 		g->players.push_back(tmp);
-	}
-	//string name;
-	bool infonotentered=0;
-	g->start();
+	}*/
+	string name;
+	bool infonotentered=1;
+	int plnum = 0;
+	//g->start();
 	while (window.isOpen())
 	{
 		Event event;
@@ -45,18 +49,17 @@ int main()
 		{
 			if (event.type == Event::Closed)
 				window.close();
-			/*if (event.type == sf::Event::TextEntered)
+			if (event.type == Event::TextEntered)
 			{
-				if (event.text.unicode < 128)
+				if (48<= event.text.unicode && event.text.unicode < 57 || 65 <= event.text.unicode && event.text.unicode < 90 || 97 <= event.text.unicode && event.text.unicode < 122)
 					name+= static_cast<char>(event.text.unicode);
-			}*/
+			}
 		}
 		window.clear();
 		if (infonotentered) 
 		{
-			/*int plnum = 1;
-			if (plnum - 1)
-				text2.setString("Enter player " + to_string(plnum - 1) + " name: " + name);
+			if (plnum)
+				text2.setString("Enter player " + to_string(plnum) + " name: " + name);
 			else
 				text2.setString("Enter number of players: " + name);
 			window.draw(text2);
@@ -65,7 +68,7 @@ int main()
 			{
 				switch (plnum) 
 				{
-				case 1: {
+				case 0: {
 					pnum = stoi(name);
 					plnum++;
 					name = "";
@@ -86,7 +89,8 @@ int main()
 					infonotentered = 0;
 					g->start();
 				}
-			}*/
+				mypause(clock);
+			}
 		}
 		else
 		{
@@ -130,14 +134,26 @@ int main()
 				}
 			}
 			window.display();
-			clock.restart();
-			while (clock.getElapsedTime().asSeconds() <= 0.05)
-			{
-
-			}
+			mypause(clock);
 		}
 	}
 	return 0;
+}
+
+void drawmenu(RenderWindow&) {
+	bool menuison = true;
+	while (menuison) {
+		
+	}
+}
+
+void mypause(Clock clock)
+{
+	clock.restart();
+	while (clock.getElapsedTime().asSeconds() <= 0.05)
+	{
+
+	}
 }
 
 void drawmap(Game* g, Sprite s_map, RenderWindow& window)
