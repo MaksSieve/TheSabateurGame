@@ -11,7 +11,6 @@ void mypause(Clock);
 
 int main()
 {
-
 	Clock clock;
 	Game* g = new Game();
 	RenderWindow window(VideoMode(32*9, 32*9+50), "The Saboteur");
@@ -30,18 +29,18 @@ int main()
 	text2.setColor(Color::Red);
 	text2.setPosition(0, 0);
 	int pnum = 0;
-	//string tmp_s[2] = { "dm", "mks" };
 	Player* tmp;
-	/*for (int i = 0; i < pnum; i++) 
-	{
-		tmp = new Player();
-		tmp->setName(tmp_s[i]);
-		g->players.push_back(tmp);
-	}*/
+	//string tmp_s[2] = { "dm", "mks" };
+	//for (int i = 0; i < pnum; i++) 
+	//{
+	//	tmp = new Player();
+	//	tmp->setName(tmp_s[i]);
+	//	g->players.push_back(tmp);
+	//}
+	//g->start();
 	string name;
 	bool infonotentered=1;
 	int plnum = 0;
-	//g->start();
 	while (window.isOpen())
 	{
 		Event event;
@@ -64,14 +63,15 @@ int main()
 				text2.setString("Enter number of players: " + name);
 			window.draw(text2);
 			window.display();
-			if (Keyboard::isKeyPressed(Keyboard::Tilde)) 
+			if (Keyboard::isKeyPressed(Keyboard::Return)) 
 			{
+				mypause(clock);
 				switch (plnum) 
 				{
 				case 0: {
 					pnum = stoi(name);
 					plnum++;
-					name = "";
+					name = "";	
 					break;
 				}
 				default:
