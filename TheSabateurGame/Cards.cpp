@@ -17,6 +17,8 @@ MountainCard::MountainCard()
 
 MineCard::MineCard()
 {
+	capacity = 0;
+	gold = false;
 	crashable = false;
 	changable = true;
 	type = mine;
