@@ -1,5 +1,6 @@
 #include "Field.h"
 #include <cstdlib>
+#include <ctime>
 
 Field::Field()
 {
@@ -32,6 +33,7 @@ Field::Field()
 	(*this)[9][1] = new MineCard();
 	(*this)[9][9] = new MineCard();
 
+	srand(time(0));
 	int k = rand() % 4 + 1;
 	switch (k)
 	{
