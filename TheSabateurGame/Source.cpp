@@ -5,14 +5,19 @@
 using namespace std;
 using namespace sf;
 
+Font font;
+bool menuison;
+Game* g;
+
 void drawmenu(RenderWindow&);
 void drawmap(Game*, Sprite, RenderWindow&);
 void mypause(Clock);
-//commit
+
 int main()
 {
+	font.loadFromFile("arial.ttf");
 	Clock clock;
-	Game* g = new Game();
+
 	RenderWindow window(VideoMode(32*9, 32*9+50), "The Saboteur");
 	Image mymap;
 	mymap.loadFromFile("map.png");
@@ -20,8 +25,6 @@ int main()
 	mmap.loadFromImage(mymap);
 	Sprite s_map;
 	s_map.setTexture(mmap);
-	Font font;
-	font.loadFromFile("arial.ttf");
 	Text text("", font, 20);
 	text.setColor(Color::Red);
 	text.setPosition(0, window.getSize().y - 50);
@@ -41,6 +44,7 @@ int main()
 	string name;
 	bool infonotentered=1;
 	int plnum = 0;
+	menuison = true;
 	while (window.isOpen())
 	{
 		Event event;
@@ -52,9 +56,14 @@ int main()
 			{
 				if (48<= event.text.unicode && event.text.unicode < 57 || 65 <= event.text.unicode && event.text.unicode < 90 || 97 <= event.text.unicode && event.text.unicode < 122)
 					name+= static_cast<char>(event.text.unicode);
+				if (event.text.unicode==8 && name.length()>0) {
+					name.erase(name.length()-1,1);
+				}
 			}
 		}
 		window.clear();
+		drawmenu(window);
+
 		if (infonotentered) 
 		{
 			if (plnum)
@@ -97,9 +106,9 @@ int main()
 			drawmap(g, s_map, window);
 			text.setString("Current Player: " + g->activePlayer->getName());
 			window.draw(text);
-			if (Mouse::isButtonPressed(Mouse::Left))
+			Vector2i pos = Mouse::getPosition(window);
+			if (Mouse::isButtonPressed(Mouse::Left) && pos.x>=0 && pos.x<=window.getSize().x&&pos.y>0&& pos.y <= window.getSize().y-50)
 			{
-				Vector2i pos = Mouse::getPosition(window);
 				try
 				{
 					//while (!g->deck.empty()) 
@@ -125,12 +134,16 @@ int main()
 					window.draw(text);
 					window.display();
 					clock.restart();
-					while (1)
+					menuison = true;
+					while (menuison)
 					{
 						if (Keyboard::isKeyPressed(Keyboard::Space))
 							break;
 					}
-					break;
+					infonotentered = 1;
+					delete g;
+					plnum = 0;
+ 					continue;
 				}
 			}
 			window.display();
@@ -140,10 +153,40 @@ int main()
 	return 0;
 }
 
-void drawmenu(RenderWindow&) {
-	bool menuison = true;
-	while (menuison) {
-		
+void drawmenu(RenderWindow& window)
+{
+	while (menuison) 
+	{
+		Clock clock;
+		window.clear();
+		Text text("Start game", font, 20);
+		Text text1("Leaderboard", font, 20);
+		Text text2("Exit", font, 20);
+		text.setColor(Color::Red);
+		text1.setColor(Color::Red);
+		text2.setColor(Color::Red);
+		text.setPosition(window.getSize().x/6, window.getSize().y / 6);
+		text1.setPosition(window.getSize().x / 6, window.getSize().x /2);
+		text2.setPosition(window.getSize().x / 6, window.getSize().x*4 / 6);
+		window.draw(text);
+		window.draw(text1);
+		window.draw(text2);
+		window.display();
+		mypause(clock);
+		Vector2i* pos =new Vector2i(Mouse::getPosition(window));
+		if (Mouse::isButtonPressed(Mouse::Left) && (*pos).x >= window.getSize().x / 6 && (*pos).x <= window.getSize().x*5/6)
+		{
+			if ((*pos).y>= window.getSize().y / 6 && (*pos).y<= window.getSize().y *2/ 6) 
+			{
+				g = new Game();
+				menuison = 0;
+				continue;
+			}
+			if ((*pos).y >= window.getSize().x * 4 / 6 && (*pos).y <= window.getSize().y * 5 / 6)
+			{
+				exit(0);
+			}
+		}
 	}
 }
 
@@ -191,42 +234,3 @@ void drawmap(Game* g, Sprite s_map, RenderWindow& window)
 		}
 	}
 }
-
-/*
-
-try
-{
-while (!g->deck.empty())
-{
-try
-{
-cout << g->activePlayer->getName() << "'s turn!" << endl;
-int x;
-int y;
-cin >> x;
-cin >> y;
-g->buildTunnel(g->activePlayer->hand.back(), pair<int, int>(x, y));
-cout << endl;
-FieldPrint(g->field);
-cout << endl;
-g->makeTurn();
-
-}
-catch (BuildError &e)
-{
-
-}
-}
-
-}
-catch (GameOver& e)
-{
-cout << e.getWinner().getName() << " WIN!!!" << endl;
-}
-
-string s;
-cin >> s;
-
-return 0;
-}
-*/
