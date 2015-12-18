@@ -25,7 +25,7 @@ protected:
 	bool changable;
 public:
 	inline virtual bool isGold() { return false; };
-	inline virtual void setGold(bool) {};
+	virtual void setGold(bool g) {};
 	inline virtual void setCapacity(int) {};
 	inline virtual int getCapacity() { return 0; };
 	inline virtual bool isCrashable() { return crashable; };
@@ -57,7 +57,7 @@ public:
 
 	inline virtual void setCapacity(int c) { capacity = c; };
 	inline virtual int getCapacity() { return capacity; };
-	inline virtual void setGolg(bool g) { gold = g; };
+	inline virtual void setGold(bool g) { gold = g; };
 	inline virtual bool isGold() { return gold; };
 };
 
