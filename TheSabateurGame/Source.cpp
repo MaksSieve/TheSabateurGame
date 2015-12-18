@@ -150,7 +150,7 @@ void drawmenu(RenderWindow&) {
 void mypause(Clock clock)
 {
 	clock.restart();
-	while (clock.getElapsedTime().asSeconds() <= 0.05)
+	while (clock.getElapsedTime().asSeconds() <= 0.1)
 	{
 
 	}
