@@ -5,7 +5,7 @@ Game::Game(int plnum)
 {
 	players.reserve(8);
 	players.shrink_to_fit();
-	turnCount.setBorders(0, 1);
+	turnCount.setBorders(0, plnum-1);
 	turnCount.setStep(1);
 	deck.reserve(CARDS);
 	deckMaker(&deck);

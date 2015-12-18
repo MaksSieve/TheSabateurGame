@@ -32,7 +32,8 @@ Field::Field()
 	(*this)[9][1] = new MineCard();
 	(*this)[9][9] = new MineCard();
 
-	switch (rand()%4+1)
+	int k = rand() % 4 + 1;
+	switch (k)
 	{
 	case 1: {(*(*this)[1][1]).setGold(true); (*(*this)[1][1]).setCapacity(rand() % 3 + 1); break;}
 	case 2: {(*(*this)[1][9]).setGold(true); (*(*this)[1][9]).setCapacity(rand() % 3 + 1); break;}
