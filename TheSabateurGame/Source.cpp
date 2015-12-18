@@ -156,7 +156,7 @@ int main()
 
 void drawmenu(RenderWindow& window)
 {
-	while (menuison) 
+	while (menuison)
 	{
 		Clock clock;
 		window.clear();
