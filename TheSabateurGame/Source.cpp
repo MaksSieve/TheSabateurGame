@@ -56,6 +56,9 @@ int main()
 			{
 				if (48<= event.text.unicode && event.text.unicode < 57 || 65 <= event.text.unicode && event.text.unicode < 90 || 97 <= event.text.unicode && event.text.unicode < 122)
 					name+= static_cast<char>(event.text.unicode);
+				if (event.text.unicode==8 && name.length()>0) {
+					name.erase(name.length()-1,1);
+				}
 			}
 		}
 		window.clear();
@@ -138,6 +141,7 @@ int main()
 							break;
 					}
 					infonotentered = 1;
+					delete g;
 					plnum = 0;
  					continue;
 				}
