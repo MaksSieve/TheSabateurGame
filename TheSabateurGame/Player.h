@@ -6,9 +6,9 @@
 
 using namespace std;
 
-enum Roles { Sabatuer, Gnome };
+enum Roles { Sabatuer, Gnome };//Роли в игре
 
-class Player
+class Player//Класс игрока
 {
 private:
 	Roles role;
@@ -16,15 +16,15 @@ private:
 	
 
 public:
-	vector<Card* > hand;
+	vector<Card* > hand;//Вектор, моделирующий руку
 	
 public:
 	Player();
 
-	inline void setName(string n) { name = n; };
-	inline string getName() { return name; };
-	inline void setRole(Roles r) { role = r; };
-	inline Roles getRole() { return role; };
+	inline void setName(string n) { name = n; };//Устанавливаем имя игрока
+	inline string getName() { return name; };//И возвращаем его
+	inline void setRole(Roles r) { role = r; };//Установить роль игрока
+	inline Roles getRole() { return role; };//И возвращаем его
 
 	~Player();
 };

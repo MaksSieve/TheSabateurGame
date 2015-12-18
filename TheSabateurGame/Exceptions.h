@@ -1,4 +1,5 @@
 #pragma once
+//Файл исключений
 
 #include <exception>
 #include <string>
@@ -7,10 +8,10 @@
 
 using namespace std;
 
-class BuildError : public exception
+class BuildError : public exception//Ошибка построения туннеля
 {
 private:
-	pair<int, int> coord;
+	pair<int, int> coord;//пара координат
 public:
 	BuildError(int x, int y) { coord.first = x; coord.second = y; };
 
@@ -26,7 +27,7 @@ public:
 
 };
 
-class GameOver : public exception
+class GameOver : public exception//Исключение окончания игры
 {
 private:
 	Player* winner;
@@ -41,7 +42,7 @@ public:
 	inline Player* getWinner() { return winner; };
 };
 
-class WrongCoord : public exception
+class WrongCoord : public exception//Неправильные координаты
 {
 	virtual const char* what() const throw()
 	{

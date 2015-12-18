@@ -2,7 +2,7 @@
 
 #include <vector>
 
-enum CardType { tunnel, action, mountain, mine, map, enter, wall };
+enum CardType { tunnel, action, mountain, mine, map, enter, wall };//Типы возможных карт
 
 using namespace std;
 
@@ -21,19 +21,19 @@ public:
 class FieldCard : public Card  
 {
 protected:
-	bool crashable;
-	bool changable;
+	bool crashable;//Карту можно сломать
+	bool changable;//Карту можно заменить
 public:
-	inline virtual bool isGold() { return false; };
-	virtual void setGold(bool g) {};
-	inline virtual void setCapacity(int) {};
-	inline virtual int getCapacity() { return 0; };
-	inline virtual bool isCrashable() { return crashable; };
+	inline virtual bool isGold() { return false; };//Наличие золота на карте
+	virtual void setGold(bool g) {};//Поставить золото на карту
+	inline virtual void setCapacity(int) {};//Установить емкость золота
+	inline virtual int getCapacity() { return 0; };//Возвращает емкость
+	inline virtual bool isCrashable() { return crashable; };//Разрушаемая и изменяемая?
 	inline virtual bool isCahngable() { return changable; };
 
 };
 
-class ActionCard : public Card
+class ActionCard : public Card//Различные виды карт
 {
 public:
 	virtual bool action() { return false; };
@@ -45,11 +45,11 @@ public:
 	MountainCard();
 };
 
-class MineCard : public FieldCard
+class MineCard : public FieldCard//Карта поля
 {
 public:
-	bool gold;
-	int capacity;
+	bool gold;//Наличие золота
+	int capacity;//Емкость золота
 
 public:
 	MineCard();
@@ -77,7 +77,7 @@ class MapCard : public ActionCard
 {
 public:
 	MapCard() { type = CardType::map; };
-	virtual bool action(vector<vector<FieldCard*>>& f, pair<int, int> coord);
+	virtual bool action(vector<vector<FieldCard*>>& f, pair<int, int> coord);//Применение действия на карте
 };
 
 class Wall : public FieldCard

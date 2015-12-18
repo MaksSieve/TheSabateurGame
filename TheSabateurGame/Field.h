@@ -5,13 +5,13 @@
 
 using namespace std;
 
-class Field : public vector<vector<FieldCard*>>
+class Field : public vector<vector<FieldCard*>>//Класс поля
 {
 public:
 	Field();
 	bool canBuildThere(pair<int, int>);
 	bool goldFound(pair<int, int>);
-	const size_t MIN_DIMENSION = 11;
+	const size_t MIN_DIMENSION = 11;//Минимальная размерность квадратного поля
 
 	~Field();
 };

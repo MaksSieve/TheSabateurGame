@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-Field::Field()
+Field::Field()//Инициализируем поле
 {
 	int dim = MIN_DIMENSION - 1;
 	(*this).resize(MIN_DIMENSION);
@@ -13,29 +13,29 @@ Field::Field()
 		{	
 			if (i == 5 && j == 5)
 			{
-				(*this)[i][j] = new EnterCard();
+				(*this)[i][j] = new EnterCard();//Создаем вход
 			}
 			else
 			{
 				if (i == 0 || j == 0 || i == 10 || j == 10)
 				{
-					(*this)[i][j] = new Wall();
+					(*this)[i][j] = new Wall();//Закрываем поле стенами
 				}
 				else
 				{
-					(*this)[i][j] = new MountainCard();
+					(*this)[i][j] = new MountainCard();//И всё остадьное заполняем камнями
 				}
 			}
 		}
 	}
-	(*this)[1][1] = new MineCard();
+	(*this)[1][1] = new MineCard();//Создаём рудники
 	(*this)[1][9] = new MineCard();
 	(*this)[9][1] = new MineCard();
 	(*this)[9][9] = new MineCard();
 
 	srand(time(0));
 	int k = rand() % 4 + 1;
-	switch (k)
+	switch (k)//Рандомно пихаем в один рудник золото
 	{
 	case 1: {(*(*this)[1][1]).setGold(true); (*(*this)[1][1]).setCapacity(rand() % 3 + 1); break;}
 	case 2: {(*(*this)[1][9]).setGold(true); (*(*this)[1][9]).setCapacity(rand() % 3 + 1); break;}
@@ -46,7 +46,7 @@ Field::Field()
 	}
 }
 
-bool Field::canBuildThere(pair<int, int> coord)
+bool Field::canBuildThere(pair<int, int> coord)//Проверка возможности постройки туннеля
 {
 	Field f = *this;
 	int x = coord.first;
@@ -60,7 +60,7 @@ bool Field::canBuildThere(pair<int, int> coord)
 
 }
 
-bool Field::goldFound(pair<int, int> coord)
+bool Field::goldFound(pair<int, int> coord)//Проверка наличия соседних клеток на золота
 {
 	Field f = *this;
 	int x = coord.first;

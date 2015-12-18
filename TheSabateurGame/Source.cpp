@@ -195,7 +195,7 @@ void drawmenu(RenderWindow& window)//Отрисовка меню
 void mypause(Clock clock)//Пауза
 {
 	clock.restart();
-	while (clock.getElapsedTime().asSeconds() <= 0.05)
+	while (clock.getElapsedTime().asSeconds() <= 0.08)
 	{
 
 	}

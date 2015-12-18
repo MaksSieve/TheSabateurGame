@@ -2,7 +2,7 @@
 
 Player::Player()
 {
-	hand.reserve(8);
+	hand.reserve(8); 
 }
 
 Player::~Player()

@@ -33,18 +33,18 @@ public:
 class Game
 {
 public:
-	vector<Player*> players;
-	vector<Card*> deck;
-	Field field;
-	Counter turnCount;
-	Player* activePlayer;
-	CardFabric deckMaker;
+	vector<Player*> players;//вектор игроков
+	vector<Card*> deck;//Вектор колоды
+	Field field;//Поле игры
+	Counter turnCount;//Количестов ходов
+	Player* activePlayer;//Указатель на активного игрока
+	CardFabric deckMaker;//Экземляр тасующего класса
 
 public:
 	Game(int);
 	void start();	// инициализирует начало игры
 	void makeTurn();	// передает ход следующему игроку, добавляет карты
-	void buildTunnel(Card* c, pair<int, int>);	//строит туннель заданым игрогом
+	void buildTunnel(Card* c, pair<int, int>);	//строит туннель заданым игроком
 	void makeAction(Player& reciever, ActionCard* c); //совершает действие над другим игроком
 	bool lookMap(MapCard* c, pair<int, int>); //смотрит на карту
 	~Game();

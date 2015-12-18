@@ -3,10 +3,10 @@
 #include "Cards.h"
 #include <vector>
 
-class CardFabric
+class CardFabric//формирует колоду карт
 {
 private:
-	vector<Card*>* deck;
+	vector<Card*>* deck;//”казатель на колоду
 public:
 	CardFabric();
 	int operator() (vector<Card*>* d);

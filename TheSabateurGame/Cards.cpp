@@ -7,7 +7,7 @@ Card::Card()
 Card::~Card()
 {
 }
-
+//Инициализируем Различные виды карт
 MountainCard::MountainCard()
 {
 	crashable = false;
@@ -20,7 +20,7 @@ MineCard::MineCard()
 	capacity = 0;
 	gold = false;
 	crashable = false;
-	changable = true;
+	changable = false;
 	type = mine;
 }
 
@@ -53,7 +53,7 @@ Wall::Wall()
 	type = wall;
 }
 
-bool MapCard::action(vector<vector<FieldCard*>>& f, pair<int, int> coord)
+bool MapCard::action(vector<vector<FieldCard*>>& f, pair<int, int> coord)//Заготовка для разных видов карт
 {
 	int x = coord.first;
 	int y = coord.second;

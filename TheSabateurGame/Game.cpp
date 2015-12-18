@@ -1,24 +1,24 @@
 #include "Game.h"
 #include <algorithm>
 
-Game::Game(int plnum)
+Game::Game(int plnum)//Инициализируем игру количесвом игроков
 {
 	players.reserve(8);
 	players.shrink_to_fit();
 	turnCount.setBorders(0, plnum-1);
 	turnCount.setStep(1);
 	deck.reserve(CARDS);
-	deckMaker(&deck);
+	deckMaker(&deck);//тасуем колоду
 }
 
-void Game::start()
+void Game::start()//Начало игры
 {
 	activePlayer = players[0];
 	deckMaker.makeNewDeck();
 
 	for each (Player* p in players)
 	{
-		(*p).hand.reserve(8);
+		(*p).hand.reserve(8);//Даём игроку карты
 		while ((*p).hand.size() < (*p).hand.capacity())
 		{
 			(*p).hand.push_back(deck.back());
@@ -29,13 +29,13 @@ void Game::start()
 }
 
 
-void Game::makeTurn()
+void Game::makeTurn()//Делаем ход
 {
-	activePlayer = players[turnCount.next()];
+	activePlayer = players[turnCount.next()];//Активный игрок - следующий
 
 	while (activePlayer->hand.size() < activePlayer->hand.capacity())
 	{
-		Card* tmp = (deck.back());
+		Card* tmp = (deck.back());//Додаем игроку карты
 		activePlayer->hand.push_back(tmp);
 		deck.pop_back();
 	}
