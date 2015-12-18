@@ -8,7 +8,7 @@ using namespace sf;
 void drawmenu(RenderWindow&);
 void drawmap(Game*, Sprite, RenderWindow&);
 void mypause(Clock);
-
+//commit
 int main()
 {
 	Clock clock;
