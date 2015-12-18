@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <algorithm>
 
-Game::Game()
+Game::Game(int plnum)
 {
 	players.reserve(8);
 	players.shrink_to_fit();

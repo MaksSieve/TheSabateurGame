@@ -44,7 +44,7 @@ public:
 
 
 public:
-	Game();
+	Game(int);
 	void start();	// инициализирует начало игры
 	void makeTurn();	// передает ход следующему игроку, добавляет карты
 	void buildTunnel(Card* c, pair<int, int>);	//строит туннель заданым игрогом
