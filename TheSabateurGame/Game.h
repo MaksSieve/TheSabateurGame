@@ -40,9 +40,6 @@ public:
 	Player* activePlayer;
 	CardFabric deckMaker;
 
-
-
-
 public:
 	Game(int);
 	void start();	// инициализирует начало игры

@@ -79,9 +79,10 @@ int main()
 				switch (plnum) 
 				{
 				case 0: {
-					pnum = stoi(name);
+					pnum = stoi(name);				
 					plnum++;
 					name = "";	
+					g = new Game(pnum);
 					break;
 				}
 				default:
@@ -179,7 +180,7 @@ void drawmenu(RenderWindow& window)
 		{
 			if ((*pos).y>= window.getSize().y / 6 && (*pos).y<= window.getSize().y *2/ 6) 
 			{
-				g = new Game(pnum);
+				
 				menuison = 0;
 				continue;
 			}
