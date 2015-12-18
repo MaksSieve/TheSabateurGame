@@ -50,7 +50,7 @@ bool Field::canBuildThere(pair<int, int> coord)
 	int y = coord.second;
 	
 	return ((f[x - 1][y]->getType() == tunnel)||(f[x + 1][y]->getType() == tunnel)
-		||(f[x][y + 1]->getType() == tunnel)||(f[x][y + 1]->getType() == tunnel)
+		||(f[x][y + 1]->getType() == tunnel)||(f[x][y - 1]->getType() == tunnel)
 		|| (f[x][y + 1]->getType() == enter) || (f[x][y - 1]->getType() == enter)
 		|| (f[x + 1][y]->getType() == enter) || (f[x - 1][y]->getType() == enter))
 		&& (f[x][y]->isCahngable());

@@ -76,7 +76,7 @@ public:
 class MapCard : public ActionCard
 {
 public:
-	MapCard() { type = map; };
+	MapCard() { type = CardType::map; };
 	virtual bool action(vector<vector<FieldCard*>>& f, pair<int, int> coord);
 };
 
