@@ -7,6 +7,7 @@ using namespace sf;
 
 Font font;
 bool menuison;
+int pnum;
 Game* g;
 
 void drawmenu(RenderWindow&);
@@ -31,7 +32,7 @@ int main()
 	Text text2("", font, 20);
 	text2.setColor(Color::Red);
 	text2.setPosition(0, 0);
-	int pnum = 0;
+	pnum = 0;
 	Player* tmp;
 	//string tmp_s[2] = { "dm", "mks" };
 	//for (int i = 0; i < pnum; i++) 
@@ -178,7 +179,7 @@ void drawmenu(RenderWindow& window)
 		{
 			if ((*pos).y>= window.getSize().y / 6 && (*pos).y<= window.getSize().y *2/ 6) 
 			{
-				g = new Game();
+				g = new Game(pnum);
 				menuison = 0;
 				continue;
 			}
